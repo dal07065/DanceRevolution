@@ -12,19 +12,32 @@ public class UserPage : MonoBehaviour
     public GameObject closeButton;
     public GameObject settingsButton;
     public GameObject challengeButton;
+    public SongItem[] songItems;
     private User user;
     private string[] avatarUrls;
+
+    
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Initialize(bool isMainUser, User usr)
     {
-        
+
         if (!isMainUser)
-        closeButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener
-        (() =>
         {
-            CanvasManager.Instance.CloseUserPreviewPage();
-        });
+            closeButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener
+            (() =>
+            {
+                CanvasManager.Instance.CloseUserPreviewPage();
+            });
+            challengeButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener
+            (() =>
+            {
+                ChallengeClicked();
+                GameManager.Instance.ChallengeStart();
+            });
+        }
+
 
         // if (isMainUser)
         // {
@@ -40,11 +53,18 @@ public class UserPage : MonoBehaviour
         // }
 
         Debug.Log("HomePage Initialize");
+        Debug.Log($"User: {usr}");
         user = usr;
         userNameText.text = user.userName;
         followersText.text = user.followers.ToString();
         dancesText.text = user.dances.ToString();
         pointsText.text = user.points.ToString() + "k";
+
+        songItems[0].Initialize(user.firstSong.songName, user.firstSong.artistName, 99);
+        songItems[1].Initialize(user.secondSong.songName, user.secondSong.artistName, 99);
+        songItems[2].Initialize(user.thirdSong.songName, user.thirdSong.artistName, 99);  
+
+        // Load User Avatar
         avatarUrls = new string[]
         {
                 "https://models.readyplayer.me/638df5fc5a7d322604bb3a58.glb",
@@ -68,15 +88,15 @@ public class UserPage : MonoBehaviour
     public void ChallengeClicked()
     {
         PlayerPrefs.SetString("Player", userNameText.text);
-        PlayerPrefs.SetString("firstSongName", "Titatnium");
-        PlayerPrefs.SetString("firstSongArtist", "Katy Perry");
-        PlayerPrefs.SetString("secondSongName", "Levitating");
-        PlayerPrefs.SetString("secondSongArtist", "Dua Lipa");
-        PlayerPrefs.SetString("thirdSongName", "Blinding");
-        PlayerPrefs.SetString("thirdSongArtist", "The Weeknd");
-        PlayerPrefs.SetInt("firstSongScore", 97);
-        PlayerPrefs.SetInt("secondSongScore", 87);
-        PlayerPrefs.SetInt("thirdSongScore", 92);
+        PlayerPrefs.SetString("firstSongName", user.firstSong.songName);
+        PlayerPrefs.SetString("firstSongArtist", user.firstSong.artistName);
+        PlayerPrefs.SetString("secondSongName", user.secondSong.songName);
+        PlayerPrefs.SetString("secondSongArtist", user.secondSong.artistName);
+        PlayerPrefs.SetString("thirdSongName", user.thirdSong.songName);
+        PlayerPrefs.SetString("thirdSongArtist", user.thirdSong.artistName);
+        PlayerPrefs.SetInt("firstSongScore", 99);
+        PlayerPrefs.SetInt("secondSongScore", 99);
+        PlayerPrefs.SetInt("thirdSongScore", 99);
 
         PlayerPrefs.Save();
     }

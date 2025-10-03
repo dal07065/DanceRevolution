@@ -15,18 +15,9 @@ public class ChallengeManager : MonoBehaviour
     void Start()
     {
         userName = "Uzutrap1020";
-        ChallengeStart();
-        ChallengeLoad();
     }
 
-    public void ChallengeStart()
-    {
-
-
-        // SceneManager.LoadScene("ChallengeScene");
-    }
-
-    public void ChallengeLoad()
+    void OnEnable()
     {
         string name = PlayerPrefs.GetString("Player", "Guest");
         Debug.Log($"Loaded player: {name}");
@@ -47,8 +38,10 @@ public class ChallengeManager : MonoBehaviour
             PlayerPrefs.GetString("thirdSongArtist", "Unknown Artist 3"),
             PlayerPrefs.GetInt("thirdSongScore", 0)
         );
+    }
 
-
-
+    public void ChallengeFinished()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }

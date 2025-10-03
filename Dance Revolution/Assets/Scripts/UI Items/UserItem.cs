@@ -18,6 +18,7 @@ public class UserItem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Initialize(User user)
     {
+        Debug.Log("UserItem Initialize");
         this.user = user;
         userPoints.text = user.points.ToString() + "k";
         userName.text = user.userName;

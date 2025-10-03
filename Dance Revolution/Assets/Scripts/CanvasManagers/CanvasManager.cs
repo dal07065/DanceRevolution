@@ -40,13 +40,23 @@ public class CanvasManager : MonoBehaviour
 
     private void Awake()
     {
+        // Scene-local singleton: if another instance exists in this scene, destroy this one.
         if (Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
             return;
         }
+
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        // DO NOT call DontDestroyOnLoad — keep this instance tied to the scene so
+        // inspector-assigned references are valid for that scene only.
+    }
+
+    private void OnDestroy()
+    {
+        // Clear static reference when the scene instance is destroyed
+        if (Instance == this)
+            Instance = null;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
