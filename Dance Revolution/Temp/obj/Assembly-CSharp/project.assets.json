@@ -1,0 +1,341 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETStandard,Version=v2.1": {
+      "Assembly-CSharp-firstpass/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.AvatarCreator": "1.0.0",
+          "ReadyPlayerMe.AvatarCreator.Editor": "1.0.0",
+          "ReadyPlayerMe.Core": "1.0.0",
+          "ReadyPlayerMe.Core.Editor": "1.0.0",
+          "ReadyPlayerMe.Core.WebGLSample.Editor": "1.0.0",
+          "ReadyPlayerMe.Samples.AvatarCreatorElements": "1.0.0",
+          "ReadyPlayerMe.Samples.AvatarCreatorWizard": "1.0.0",
+          "ReadyPlayerMe.Samples.AvatarLoading": "1.0.0",
+          "ReadyPlayerMe.Samples.AvatarRenders": "1.0.0",
+          "ReadyPlayerMe.Samples.QuickStart": "1.0.0",
+          "ReadyPlayerMe.Samples.WebGLSample": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Assembly-CSharp-firstpass.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Assembly-CSharp-firstpass.dll": {}
+        }
+      },
+      "ReadyPlayerMe.AvatarCreator/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.AvatarCreator.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.AvatarCreator.dll": {}
+        }
+      },
+      "ReadyPlayerMe.AvatarCreator.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.AvatarCreator": "1.0.0",
+          "ReadyPlayerMe.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.AvatarCreator.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.AvatarCreator.Editor.dll": {}
+        }
+      },
+      "ReadyPlayerMe.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.Core.dll": {}
+        }
+      },
+      "ReadyPlayerMe.Core.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.AvatarCreator": "1.0.0",
+          "ReadyPlayerMe.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.Core.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.Core.Editor.dll": {}
+        }
+      },
+      "ReadyPlayerMe.Core.WebGLSample.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.Core": "1.0.0",
+          "ReadyPlayerMe.Core.Editor": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.Core.WebGLSample.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.Core.WebGLSample.Editor.dll": {}
+        }
+      },
+      "ReadyPlayerMe.Samples.AvatarCreatorElements/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.AvatarCreator": "1.0.0",
+          "ReadyPlayerMe.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.Samples.AvatarCreatorElements.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.Samples.AvatarCreatorElements.dll": {}
+        }
+      },
+      "ReadyPlayerMe.Samples.AvatarCreatorWizard/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.AvatarCreator": "1.0.0",
+          "ReadyPlayerMe.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.Samples.AvatarCreatorWizard.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.Samples.AvatarCreatorWizard.dll": {}
+        }
+      },
+      "ReadyPlayerMe.Samples.AvatarLoading/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.Samples.AvatarLoading.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.Samples.AvatarLoading.dll": {}
+        }
+      },
+      "ReadyPlayerMe.Samples.AvatarRenders/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.Samples.AvatarRenders.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.Samples.AvatarRenders.dll": {}
+        }
+      },
+      "ReadyPlayerMe.Samples.QuickStart/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.Samples.QuickStart.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.Samples.QuickStart.dll": {}
+        }
+      },
+      "ReadyPlayerMe.Samples.WebGLSample/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.Samples.WebGLSample.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.Samples.WebGLSample.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Assembly-CSharp-firstpass/1.0.0": {
+      "type": "project",
+      "path": "Assembly-CSharp-firstpass.csproj",
+      "msbuildProject": "Assembly-CSharp-firstpass.csproj"
+    },
+    "ReadyPlayerMe.AvatarCreator/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.AvatarCreator.csproj",
+      "msbuildProject": "ReadyPlayerMe.AvatarCreator.csproj"
+    },
+    "ReadyPlayerMe.AvatarCreator.Editor/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.AvatarCreator.Editor.csproj",
+      "msbuildProject": "ReadyPlayerMe.AvatarCreator.Editor.csproj"
+    },
+    "ReadyPlayerMe.Core/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.Core.csproj",
+      "msbuildProject": "ReadyPlayerMe.Core.csproj"
+    },
+    "ReadyPlayerMe.Core.Editor/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.Core.Editor.csproj",
+      "msbuildProject": "ReadyPlayerMe.Core.Editor.csproj"
+    },
+    "ReadyPlayerMe.Core.WebGLSample.Editor/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.Core.WebGLSample.Editor.csproj",
+      "msbuildProject": "ReadyPlayerMe.Core.WebGLSample.Editor.csproj"
+    },
+    "ReadyPlayerMe.Samples.AvatarCreatorElements/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.Samples.AvatarCreatorElements.csproj",
+      "msbuildProject": "ReadyPlayerMe.Samples.AvatarCreatorElements.csproj"
+    },
+    "ReadyPlayerMe.Samples.AvatarCreatorWizard/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.Samples.AvatarCreatorWizard.csproj",
+      "msbuildProject": "ReadyPlayerMe.Samples.AvatarCreatorWizard.csproj"
+    },
+    "ReadyPlayerMe.Samples.AvatarLoading/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.Samples.AvatarLoading.csproj",
+      "msbuildProject": "ReadyPlayerMe.Samples.AvatarLoading.csproj"
+    },
+    "ReadyPlayerMe.Samples.AvatarRenders/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.Samples.AvatarRenders.csproj",
+      "msbuildProject": "ReadyPlayerMe.Samples.AvatarRenders.csproj"
+    },
+    "ReadyPlayerMe.Samples.QuickStart/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.Samples.QuickStart.csproj",
+      "msbuildProject": "ReadyPlayerMe.Samples.QuickStart.csproj"
+    },
+    "ReadyPlayerMe.Samples.WebGLSample/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.Samples.WebGLSample.csproj",
+      "msbuildProject": "ReadyPlayerMe.Samples.WebGLSample.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETStandard,Version=v2.1": [
+      "Assembly-CSharp-firstpass >= 1.0.0",
+      "ReadyPlayerMe.AvatarCreator >= 1.0.0",
+      "ReadyPlayerMe.AvatarCreator.Editor >= 1.0.0",
+      "ReadyPlayerMe.Core >= 1.0.0",
+      "ReadyPlayerMe.Core.Editor >= 1.0.0",
+      "ReadyPlayerMe.Core.WebGLSample.Editor >= 1.0.0",
+      "ReadyPlayerMe.Samples.AvatarCreatorElements >= 1.0.0",
+      "ReadyPlayerMe.Samples.AvatarCreatorWizard >= 1.0.0",
+      "ReadyPlayerMe.Samples.AvatarLoading >= 1.0.0",
+      "ReadyPlayerMe.Samples.AvatarRenders >= 1.0.0",
+      "ReadyPlayerMe.Samples.QuickStart >= 1.0.0",
+      "ReadyPlayerMe.Samples.WebGLSample >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/jmiller/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/Assembly-CSharp.csproj",
+      "projectName": "Assembly-CSharp",
+      "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/Assembly-CSharp.csproj",
+      "packagesPath": "/Users/jmiller/.nuget/packages/",
+      "outputPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/Temp/obj/Assembly-CSharp/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/jmiller/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netstandard2.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "projectReferences": {
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/Assembly-CSharp-firstpass.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/Assembly-CSharp-firstpass.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.AvatarCreator.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.AvatarCreator.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.AvatarCreator.Editor.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.AvatarCreator.Editor.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.Editor.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.Editor.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.WebGLSample.Editor.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.WebGLSample.Editor.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.AvatarCreatorElements.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.AvatarCreatorElements.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.AvatarCreatorWizard.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.AvatarCreatorWizard.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.AvatarLoading.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.AvatarLoading.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.AvatarRenders.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.AvatarRenders.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.QuickStart.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.QuickStart.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.WebGLSample.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Samples.WebGLSample.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

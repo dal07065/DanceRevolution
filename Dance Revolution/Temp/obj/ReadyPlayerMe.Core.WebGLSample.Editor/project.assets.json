@@ -1,0 +1,125 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETStandard,Version=v2.1": {
+      "ReadyPlayerMe.AvatarCreator/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.AvatarCreator.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.AvatarCreator.dll": {}
+        }
+      },
+      "ReadyPlayerMe.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.Core.dll": {}
+        }
+      },
+      "ReadyPlayerMe.Core.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ReadyPlayerMe.AvatarCreator": "1.0.0",
+          "ReadyPlayerMe.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReadyPlayerMe.Core.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReadyPlayerMe.Core.Editor.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ReadyPlayerMe.AvatarCreator/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.AvatarCreator.csproj",
+      "msbuildProject": "ReadyPlayerMe.AvatarCreator.csproj"
+    },
+    "ReadyPlayerMe.Core/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.Core.csproj",
+      "msbuildProject": "ReadyPlayerMe.Core.csproj"
+    },
+    "ReadyPlayerMe.Core.Editor/1.0.0": {
+      "type": "project",
+      "path": "ReadyPlayerMe.Core.Editor.csproj",
+      "msbuildProject": "ReadyPlayerMe.Core.Editor.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETStandard,Version=v2.1": [
+      "ReadyPlayerMe.Core >= 1.0.0",
+      "ReadyPlayerMe.Core.Editor >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/jmiller/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.WebGLSample.Editor.csproj",
+      "projectName": "ReadyPlayerMe.Core.WebGLSample.Editor",
+      "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.WebGLSample.Editor.csproj",
+      "packagesPath": "/Users/jmiller/.nuget/packages/",
+      "outputPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/Temp/obj/ReadyPlayerMe.Core.WebGLSample.Editor/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/jmiller/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netstandard2.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "projectReferences": {
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.csproj"
+            },
+            "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.Editor.csproj": {
+              "projectPath": "/Users/jmiller/Documents/DanceRevolution/Dance Revolution/ReadyPlayerMe.Core.Editor.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
