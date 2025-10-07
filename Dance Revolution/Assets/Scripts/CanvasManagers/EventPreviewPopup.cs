@@ -47,7 +47,13 @@ public class EventPreviewPopup : MonoBehaviour
         closeButton.onClick.RemoveAllListeners();
         closeButton.onClick.AddListener(() =>
         {
+            CanvasManager.Instance.PopupManager.CloseAllPopups();
             gameObject.SetActive(false);
+        });
+
+        joinButton.onClick.AddListener(() =>
+        {
+            GameManager.EventJoin();
         });
 
         gameObject.SetActive(true);

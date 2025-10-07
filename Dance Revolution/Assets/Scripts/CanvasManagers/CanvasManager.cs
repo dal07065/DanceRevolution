@@ -18,12 +18,12 @@ public class CanvasManager : MonoBehaviour
     public GameObject UserAvatarEnvironment;
     public GameObject PlayerAvatarEnvironment;
     public GameObject HomeCanvas;
-    public GameObject FeedCanvas;
+    public GameObject ChallengeCanvas;
     public GameObject EventCanvas;
     public GameObject RankingCanvas;
 
     public Button HomeButton;
-    public Button FeedButton;
+    public Button ChallengeButton;
     public Button EventButton;
     public Button RankingButton;
 
@@ -105,12 +105,12 @@ public class CanvasManager : MonoBehaviour
 
         SetCurrentButton(HomeButton);
 
-        FeedCanvas.SetActive(false);
+        ChallengeCanvas.SetActive(false);
         EventCanvas.SetActive(false);
         RankingCanvas.SetActive(false);
 
         HomeButton.onClick.AddListener(() => SetCurrentButton(HomeButton));
-        FeedButton.onClick.AddListener(() => SetCurrentButton(FeedButton));
+        ChallengeButton.onClick.AddListener(() => SetCurrentButton(ChallengeButton));
         EventButton.onClick.AddListener(() => SetCurrentButton(EventButton));
         RankingButton.onClick.AddListener(() => SetCurrentButton(RankingButton));
     }
@@ -144,8 +144,8 @@ public class CanvasManager : MonoBehaviour
                 currentCanvas = RankingCanvas;
             else if (button == EventButton)
                 currentCanvas = EventCanvas;
-            else if (button == FeedButton)
-                currentCanvas = FeedCanvas;
+            else if (button == ChallengeButton)
+                currentCanvas = ChallengeCanvas;
             else
                 Debug.LogError("CanvasManager: Unknown button clicked");
 
@@ -157,7 +157,7 @@ public class CanvasManager : MonoBehaviour
     {
         if (isMainUser)
         {
-            MainCamera.transform.position = new Vector3(4, 2.95f, -4.14f);
+            MainCamera.transform.position = new Vector3(4.13f, 2.42f, -3.63f);
 
             HomeCanvas.SetActive(true);
             UserAvatarEnvironment.SetActive(true);
@@ -165,7 +165,7 @@ public class CanvasManager : MonoBehaviour
         }
         else
         {
-            MainCamera.transform.position = new Vector3(7.51f, 2.95f, -4.14f);
+            MainCamera.transform.position = new Vector3(7.66f, 2.42f, -3.63f);
 
             currentCanvas.SetActive(false);
             PlayerHomeCanvas.SetActive(true);
@@ -179,6 +179,7 @@ public class CanvasManager : MonoBehaviour
         currentCanvas.SetActive(true);
         PlayerHomeCanvas.SetActive(false);
         PlayerAvatarEnvironment.SetActive(false);
+        PlayerPage.Close();
     }
 
     public User[] GetUsers()

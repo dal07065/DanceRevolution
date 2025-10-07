@@ -8,17 +8,24 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
-        {
             Instance = this;
-        }
         else
-        {
             Destroy(gameObject);
-        }
+
     }
 
     public void ChallengeStart()
     {
         SceneManager.LoadScene("ChallengeScene");
+    }
+
+    public static void EventJoin()
+    {
+        SceneManager.LoadScene("EventScene");
+    }
+
+    public static void EventExit()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }

@@ -13,11 +13,12 @@ public class UserPage : MonoBehaviour
     public GameObject settingsButton;
     public GameObject challengeButton;
     public SongItem[] songItems;
+    public UnityEngine.UI.Button ShowAllButton;
     private User user;
     private string[] avatarUrls;
 
-    
-    
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Initialize(bool isMainUser, User usr)
@@ -62,7 +63,7 @@ public class UserPage : MonoBehaviour
 
         songItems[0].Initialize(user.firstSong.songName, user.firstSong.artistName, 99);
         songItems[1].Initialize(user.secondSong.songName, user.secondSong.artistName, 99);
-        songItems[2].Initialize(user.thirdSong.songName, user.thirdSong.artistName, 99);  
+        songItems[2].Initialize(user.thirdSong.songName, user.thirdSong.artistName, 99);
 
         // Load User Avatar
         avatarUrls = new string[]
@@ -80,9 +81,20 @@ public class UserPage : MonoBehaviour
             AvatarAnimationHelper.SetupAnimator(args.Metadata, args.Avatar);
         };
         int randomIndex = UnityEngine.Random.Range(1, 4);
-        avatarLoader.LoadAvatar(avatarUrls[randomIndex]);
+        // avatarLoader.LoadAvatar(avatarUrls[randomIndex]);
+
+        ShowAllButton.onClick.AddListener(() =>
+        {
+            CanvasManager.Instance.PopupManager.OpenShowAllSongsPopup(user);
+        });
 
         gameObject.SetActive(true);
+        
+    }
+
+    public void Close()
+    {
+        ShowAllButton.onClick.RemoveAllListeners();
     }
 
     public void ChallengeClicked()

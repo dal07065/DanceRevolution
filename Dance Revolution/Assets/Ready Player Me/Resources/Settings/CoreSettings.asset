@@ -15,5 +15,5 @@ MonoBehaviour:
   Subdomain: dance-revolution
   AppId: 68c35f8fd5a3818bc3821280
   EnableLogging: 0
-  EnableAnalytics: 0
+  EnableAnalytics: 1
   BodyType: 1
