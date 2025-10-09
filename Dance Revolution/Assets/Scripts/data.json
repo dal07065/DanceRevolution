@@ -1,0 +1,21 @@
+{
+  "userName": "Uzutrap1023",
+  "songs": [
+    {
+      "songID": "1234"
+    },
+    {
+      "songID": "5678"
+    },
+    {
+      "songID": "91011"
+    },
+    {
+      "songID": "121314"
+    }
+  ],
+  "followers": 23,
+  "dances" : 52,
+  "points" : 1340,
+  "avatarURL" : "https://models.readyplayer.me/638df5fc5a7d322604bb3a58.glb"
+}

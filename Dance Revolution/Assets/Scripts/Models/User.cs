@@ -1,5 +1,9 @@
 
 
+using System;
+using System.Collections.Generic;
+
+[Serializable]
 public class User
 {
     public string userName;
@@ -8,19 +12,23 @@ public class User
     public int dances;
 
     public float points;
-    public Song firstSong;
-    public Song secondSong;
-    public Song thirdSong;
+    public List<Song> songs;
 
-    public User(string name, int f1, int dance, float totalpts, Song song1, Song song2, Song song3)
+    public string avatarURL;
+    public User(string name, int f1, int dance, float totalpts, Song song1, Song song2, Song song3, string avatar)
     {
         userName = name;
         followers = f1;
         dances = dance;
         points = totalpts;
-        firstSong = song1;
-        secondSong = song2;
-        thirdSong = song3;
+        songs = new List<Song>
+        {
+            song1,
+            song2,
+            song3
+        };
+        avatarURL = avatar;
+    
     }
  
 }

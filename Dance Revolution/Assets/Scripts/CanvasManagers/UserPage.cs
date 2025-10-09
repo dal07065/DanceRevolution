@@ -23,6 +23,33 @@ public class UserPage : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Initialize(bool isMainUser, User usr)
     {
+        if (avatar)
+        {
+            Destroy(avatar);
+            avatar = null;
+        }
+
+        Debug.Log("HomePage Initialize");
+        Debug.Log($"User: {usr}");
+        user = usr;
+        userNameText.text = user.userName;
+        followersText.text = user.followers.ToString();
+        dancesText.text = user.dances.ToString();
+        pointsText.text = user.points.ToString() + "k";
+
+        songItems[0].Initialize(user.firstSong.songName, user.firstSong.artistName, 99);
+        songItems[1].Initialize(user.secondSong.songName, user.secondSong.artistName, 99);
+        songItems[2].Initialize(user.thirdSong.songName, user.thirdSong.artistName, 99);
+
+        ShowAllButton.onClick.AddListener(() =>
+        {
+            CanvasManager.Instance.PopupManager.OpenShowAllSongsPopup(user);
+        });
+        // Load User Avatar
+
+
+
+
 
         if (!isMainUser)
         {
@@ -37,56 +64,20 @@ public class UserPage : MonoBehaviour
                 ChallengeClicked();
                 GameManager.Instance.ChallengeStart();
             });
+
+            var avatarLoader = new AvatarObjectLoader();
+            // use the OnCompleted event to set the avatar and setup animator
+            avatarLoader.OnCompleted += (_, args) =>
+            {
+                avatar = args.Avatar;
+                //AvatarAnimationHelper.SetupAnimator(args.Metadata, args.Avatar);
+                avatar.transform.SetPositionAndRotation(new Vector3(7.65f, 0.13f, 1.5f), Quaternion.Euler(0, 180, 0));
+                avatar.GetComponent<Animator>().runtimeAnimatorController = GameManager.Instance.avatarAnimator;
+                avatar.transform.SetParent(GameManager.Instance.PlayerAvatarEnvironment.transform);
+                CanvasManager.Instance.ShowLoadingScreen(false);
+            };
+            avatarLoader.LoadAvatar(user.avatarURL);
         }
-
-
-        // if (isMainUser)
-        // {
-        //     closeButton.SetActive(false);
-        //     settingsButton.SetActive(true);
-        //     challengeButton.SetActive(false);
-        // }
-        // else
-        // {
-        //     closeButton.SetActive(true);
-        //     settingsButton.SetActive(false);
-        //     challengeButton.SetActive(true);
-        // }
-
-        Debug.Log("HomePage Initialize");
-        Debug.Log($"User: {usr}");
-        user = usr;
-        userNameText.text = user.userName;
-        followersText.text = user.followers.ToString();
-        dancesText.text = user.dances.ToString();
-        pointsText.text = user.points.ToString() + "k";
-
-        songItems[0].Initialize(user.firstSong.songName, user.firstSong.artistName, 99);
-        songItems[1].Initialize(user.secondSong.songName, user.secondSong.artistName, 99);
-        songItems[2].Initialize(user.thirdSong.songName, user.thirdSong.artistName, 99);
-
-        // Load User Avatar
-        avatarUrls = new string[]
-        {
-                "https://models.readyplayer.me/638df5fc5a7d322604bb3a58.glb",
-                "https://models.readyplayer.me/638df70ed72bffc6fa179596.glb",
-                "https://models.readyplayer.me/638df75e5a7d322604bb3dcd.glb",
-                "https://models.readyplayer.me/638df7d1d72bffc6fa179763.glb"
-        };
-        var avatarLoader = new AvatarObjectLoader();
-        // use the OnCompleted event to set the avatar and setup animator
-        avatarLoader.OnCompleted += (_, args) =>
-        {
-            avatar = args.Avatar;
-            AvatarAnimationHelper.SetupAnimator(args.Metadata, args.Avatar);
-        };
-        int randomIndex = UnityEngine.Random.Range(1, 4);
-        // avatarLoader.LoadAvatar(avatarUrls[randomIndex]);
-
-        ShowAllButton.onClick.AddListener(() =>
-        {
-            CanvasManager.Instance.PopupManager.OpenShowAllSongsPopup(user);
-        });
 
         gameObject.SetActive(true);
         
@@ -95,6 +86,8 @@ public class UserPage : MonoBehaviour
     public void Close()
     {
         ShowAllButton.onClick.RemoveAllListeners();
+        closeButton.GetComponent<UnityEngine.UI.Button>().onClick.RemoveAllListeners();
+        challengeButton.GetComponent<UnityEngine.UI.Button>().onClick.RemoveAllListeners();
     }
 
     public void ChallengeClicked()

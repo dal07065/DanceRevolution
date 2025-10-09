@@ -20,9 +20,11 @@ namespace ReadyPlayerMe.Core
 
         public static void SetupAnimator(AvatarMetadata avatarMetadata, GameObject avatar)
         {
+            Debug.Log("Setting up animator for avatar");
             var animator = avatar.GetComponent<Animator>();
             if (animator == null)
             {
+                Debug.Log("Animator component not found, adding one.");
                 animator = avatar.AddComponent<Animator>();
             }
             SetupAnimator(avatarMetadata, animator);
@@ -35,27 +37,32 @@ namespace ReadyPlayerMe.Core
 
         public static Avatar GetAnimationAvatar(AvatarMetadata avatarMetadata)
         {
+            Debug.Log("Getting animation avatar");
             var path = GetAvatarPath(avatarMetadata);
             if (path == null)
             {
+                Debug.LogWarning($"[{TAG}] Animation avatar not found for body type {avatarMetadata.BodyType}");
                 return null;
             }
 
             if (!AnimationAvatarCache.TryGetValue(path, out var avatar))
             {
+                Debug.Log($"Loading animation avatar from path: {path}");
                 var model = Resources.Load<GameObject>(path);
                 if (model == null)
                 {
+                    Debug.LogWarning($"[{TAG}] Animation avatar not found at path: {path}");
                     return null;
                 }
 
                 if (model.TryGetComponent(out Animator animator))
                 {
+                    Debug.Log("Animator component found on animation avatar.");
                     avatar = animator.avatar;
                     AnimationAvatarCache[path] = avatar;
                 }
             }
-
+            Debug.Log("Returning animation avatar");
             return avatar;
         }
 

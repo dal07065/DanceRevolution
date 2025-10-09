@@ -7,13 +7,6 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
-    private Song[] songs;
-    private User[] users;
-    private Event[] events;
-    public GameObject MainCamera;
-
-    public PopupManager PopupManager;
-
     [Header("Main Canvas")]
     public GameObject UserAvatarEnvironment;
     public GameObject PlayerAvatarEnvironment;
@@ -62,42 +55,8 @@ public class CanvasManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Initialize dummy data
-        songs = new Song[]
-        {
-            new Song("Haru Haru", "Big Bang", 9.8f),
-            new Song("Levitate", "Dua Lipa", 6.5f),
-            new Song("Blinding Lights", "The Weeknd", 5.3f),
-            new Song("Here With Me", "d4vd", 4.1f),
-            new Song("Golden", "HUNTRX", 1.6f)
-        };
-
-        users = new User[]{
-
-            new User("Uzutrap1023", 143, 425, 3.2f, songs[2], songs[4], songs[1]),
-            new User("DancingQueen", 98, 210, 5.3f,songs[0], songs[1], songs[3]),
-            new User("RhythmMaster", 120, 330, 9.1f, songs[1], songs[3], songs[0]),
-            new User("BeatBlaster", 75, 150, 1.4f, songs[4], songs[2], songs[3]),
-            new User("GrooveGuru", 200, 600, 8.4f, songs[3], songs[0], songs[4]),
-            new User("SpinDoctor", 50, 100, 2.7f, songs[1], songs[4], songs[2]),
-            new User("FunkyFeet", 180, 450, 6.9f, songs[0], songs[2], songs[3]),
-            new User("DanceDynamo", 130, 300, 4.8f, songs[3], songs[1], songs[0]),
-            new User("StepSensation", 90, 220, 7.5f, songs[2], songs[0], songs[4])
-
-        };
-
-        events = new Event[]{
-            new Event("Jazz Dance Gala", "August 18th", "17:00 PST", "Grand Theater", "Live", "3 Grand Prizes for Top 3 Winners and 10 Consolation Prizes!"),
-            new Event("Hip Hop Battle", "September 5th", "19:00 PST", "City Arena", "Open", "3 Grand Prizes for Top 3 Winners and 10 Consolation Prizes!"),
-            new Event("Ballet Showcase", "July 30th", "15:00 PST", "Opera House", "Closed", "3 Grand Prizes for Top 3 Winners and 10 Consolation Prizes!"),
-            new Event("Salsa Night", "August 25th", "20:00 PST", "Downtown Club", "Open",  "3 Grand Prizes for Top 3 Winners and 10 Consolation Prizes!"),
-            new Event("Contemporary Dance Fest", "September 10th", "18:00 PST", "Art Center", "Live",  "3 Grand Prizes for Top 3 Winners and 10 Consolation Prizes!"),
-            new Event("Tap Dance Extravaganza", "July 22nd", "16:00 PST", "Main Square", "Closed",  "3 Grand Prizes for Top 3 Winners and 10 Consolation Prizes!")
-            
-        };
-
-        RankingCanvas.GetComponent<RankingCanvasManager>().Initialize(songs, users);
-        EventCanvas.GetComponent<EventCanvasManager>().Initialize(events);
+        RankingCanvas.GetComponent<RankingCanvasManager>().Initialize(GameManager.Instance.songs, GameManager.Instance.users);
+        EventCanvas.GetComponent<EventCanvasManager>().Initialize(GameManager.Instance.events);
 
         // Reset to Home Canvas
         currentCanvas = HomeCanvas;
@@ -118,7 +77,7 @@ public class CanvasManager : MonoBehaviour
     public void SetCurrentButton(Button button)
     {
         // if Popup is open, close all popups (including User Detail Preview)
-        PopupManager.CloseAllPopups();
+        PopupManager.Instance.CloseAllPopups();
         CloseUserPreviewPage();
 
         // Deactivate current canvas and change button color to inactive
@@ -136,7 +95,7 @@ public class CanvasManager : MonoBehaviour
         if (button == HomeButton)
         {
             currentCanvas = HomeCanvas;
-            OpenUserPreviewPage(true, users[0]);
+            OpenUserPreviewPage(true, GameManager.Instance.users[0]);
         }
         else
         {
@@ -157,7 +116,7 @@ public class CanvasManager : MonoBehaviour
     {
         if (isMainUser)
         {
-            MainCamera.transform.position = new Vector3(4.13f, 2.42f, -3.63f);
+            GameManager.Instance.MainCamera.transform.position = new Vector3(4.13f, 2.42f, -3.63f);
 
             HomeCanvas.SetActive(true);
             UserAvatarEnvironment.SetActive(true);
@@ -165,8 +124,8 @@ public class CanvasManager : MonoBehaviour
         }
         else
         {
-            MainCamera.transform.position = new Vector3(7.66f, 2.42f, -3.63f);
-
+            GameManager.Instance.MainCamera.transform.position = new Vector3(7.66f, 2.42f, -3.63f);
+            UserAvatarEnvironment.SetActive(false);
             currentCanvas.SetActive(false);
             PlayerHomeCanvas.SetActive(true);
             PlayerAvatarEnvironment.SetActive(true);
@@ -182,14 +141,16 @@ public class CanvasManager : MonoBehaviour
         PlayerPage.Close();
     }
 
-    public User[] GetUsers()
+    public void ShowSongList()
     {
-        return users;
+        PopupManager.Instance.SongListPopup.SetActive(true);
+        //PopupManager.SongListPopup.GetComponent<SongListPopup>().Initialize(songs);
     }
 
-    public Song[] GetSongs()
-    {
-        return songs;
-    }
 
+
+    internal void ShowLoadingScreen(bool show)
+    {
+        PopupManager.Instance.ShowLoadingScreen(show);
+    }
 }

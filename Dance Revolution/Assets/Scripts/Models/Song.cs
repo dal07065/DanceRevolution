@@ -1,5 +1,7 @@
 
+using System;
 
+[Serializable]
 public class Song
 {
     public string songName;
@@ -13,10 +15,11 @@ public class Song
         popularityScore = popularity;
     }
 
-    public void Initialize(string songName, string artistName) 
+    public void Initialize(string songName, string artistName)
     {
-        this.songName = songName; 
+        this.songName = songName;
         this.artistName = artistName;
-        
+
     }
 }
+

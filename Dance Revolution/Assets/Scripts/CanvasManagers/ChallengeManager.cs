@@ -1,43 +1,81 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ChallengeManager : MonoBehaviour
 {
-    [Header("UI Elements")]
-    public TextMeshProUGUI userNameText;
 
-    public SongItem firstSongItem;
-    public SongItem secondSongItem;
-    public SongItem thirdSongItem;
-    private string userName;
+    private int numberOfSongs;
+    private User challenger;
+    private User player;
+    private Song[] songs;
+
+    [Header("UI Elements")]
+
+    public CountdownUI CountdownUI;
+    public GameObject UI;
+    public ChallengeSongItem SongItem;
+    private User[] others; // Challenger, Friends, Event Participants
+
+    public event Action OnCountdownComplete;
 
     void Start()
     {
-        userName = "Uzutrap1020";
+        OnCountdownComplete += CountdownComplete;
+
+        CountdownUI.StartCountdown(OnCountdownComplete);
+
+    }
+    void CountdownComplete()
+    {
+        UI.SetActive(true);
     }
 
     void OnEnable()
     {
-        string name = PlayerPrefs.GetString("Player", "Guest");
-        Debug.Log($"Loaded player: {name}");
-        userNameText.text = name;
+        // Challenge a Song (1 song)
 
-        firstSongItem.Initialize(
-            PlayerPrefs.GetString("firstSongName", "Default Song 1"),
-            PlayerPrefs.GetString("firstSongArtist", "Unknown Artist 1"),
-            PlayerPrefs.GetInt("firstSongScore", 0)
-        );
-        secondSongItem.Initialize(
-            PlayerPrefs.GetString("secondSongName", "Default Song 2"),
-            PlayerPrefs.GetString("secondSongArtist", "Unknown Artist 2"),
-            PlayerPrefs.GetInt("secondSongScore", 0)
-        );
-        thirdSongItem.Initialize(
-            PlayerPrefs.GetString("thirdSongName", "Default Song 3"),
-            PlayerPrefs.GetString("thirdSongArtist", "Unknown Artist 3"),
-            PlayerPrefs.GetInt("thirdSongScore", 0)
-        );
+        // Challenge a Person (3 songs)
+
+        // Challenge a Song with Multiple Friends (1 song)
+
+        // Challenge a Event (20 songs)
+
+        string challengeType = PlayerPrefs.GetString("ChallengeType");
+
+        string json = PlayerPrefs.GetString("Player");
+        player = JsonUtility.FromJson<User>(json);
+
+        json = PlayerPrefs.GetString("Songs");
+        songs = JsonUtility.FromJson<Song[]>(json);
+
+        json = PlayerPrefs.GetString("Other Players");
+        others = JsonUtility.FromJson<User[]>(json);
+
+        switch (challengeType)
+        {
+            case "Song":
+                numberOfSongs = 1;
+
+                break;
+            case "Person":
+                // 1 Challenger
+                numberOfSongs = 3;
+                break;
+            case "Group":
+                // Multiple Friends
+                numberOfSongs = 1;
+                break;
+            case "Event":
+                // Multiple Ppl
+                numberOfSongs = 20;
+                break;
+            default:
+                numberOfSongs = 3;
+                break;
+        }
+
     }
 
     public void ChallengeFinished()
